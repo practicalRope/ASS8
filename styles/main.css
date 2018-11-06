@@ -1,0 +1,125 @@
+/* Fonts and Variables */
+/* @font-face{
+    font-family: caviar;
+    src: url(../fonts/CaviarDreams.ttf);
+}
+@font-face{
+    font-family: caviar;
+    src: url(../fonts/CaviarDreams_Bold.ttf);
+    font-weight: bold;
+}
+@font-face{
+    font-family: edo;
+    src: url(../fonts/edosz.ttf);
+}
+@font-face{
+    font-family: azonix;
+    src: url(../fonts/Azonix.otf);
+} */
+@font-face{
+    font-family: vcr;
+    src: url(../fonts/VCR_OSD_MONO_1.001.ttf);
+}
+
+
+:root{
+    --mfont: vcr, helvetica;
+
+    --vlarge: 40px;
+    --large: 20px;
+
+    --mtextColor: hsla(0, 0%, 100%, 0.7);
+
+    --bgColorLight: hsl(250, 100%, 25%);
+    --bgColorLighter: hsl(250, 100%, 50%);
+    --bgColorDark: hsl(250, 100%, 20%);
+
+}
+
+
+
+
+
+/* -------------- MAIN LAYOUT -------------- */
+html,body{
+    min-height: 100vh;
+    margin: 0;
+}
+header,main,footer{
+    margin: 0 auto;
+    max-width: 1024px;
+    box-sizing: border-box;
+    padding: 15px; /* the main content padding */
+}
+header,footer{
+    min-height: 150px;
+
+}
+main{
+    min-height: calc(100vh - 300px);
+}
+
+
+
+
+
+
+/* -------------- INNER LAYOUT -------------- */
+nav{
+    position: sticky;
+    top: 50px;
+}
+
+main{
+
+}
+
+
+
+
+
+
+
+
+/* -------------- MAIN FLUFF -------------- */
+body{
+    background: hsl(230, 50%, 10%);
+}
+body, nav a{
+    font-family: var(--mfont);
+    text-shadow: 0 0 2px black;
+    color: var(--mtextColor);
+    font-size: var(--large);
+}
+
+nav{
+
+}
+
+nav a{
+    font-size: var(--vlarge);
+
+    text-decoration: none;
+    border-bottom: 3px solid var(--bgColorLight);
+
+    transition: border .5s;
+}
+nav a:hover{
+    border-color: var(--bgColorLighter);
+    
+    transition: border .5s;
+}
+main{
+    background-color: var(--bgColorLight);
+}
+
+
+
+
+
+
+/* -------------- INNER FLUFF -------------- */
+
+
+
+
