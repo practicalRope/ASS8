@@ -8,14 +8,16 @@
     src: url(../fonts/CaviarDreams_Bold.ttf);
     font-weight: bold;
 }
-@font-face{
-    font-family: edo;
-    src: url(../fonts/edosz.ttf);
-}
+
 @font-face{
     font-family: azonix;
     src: url(../fonts/Azonix.otf);
 } */
+
+@font-face{
+    font-family: edo;
+    src: url(../fonts/edosz.ttf);
+}
 @font-face{
     font-family: vcr;
     src: url(../fonts/VCR_OSD_MONO_1.001.ttf);
@@ -29,6 +31,7 @@
     --large: 20px;
 
     --mtextColor: hsla(0, 0%, 100%, 0.7);
+    --mtextColorLight: hsla(0, 0%, 95%, 1);
 
     --bgColorLight: hsl(250, 100%, 25%);
     --bgColorLighter: hsl(250, 100%, 50%);
@@ -53,8 +56,12 @@ header,main,footer{
 }
 header,footer{
     min-height: 150px;
-
 }
+
+nav a{
+    /* padding/ margin/ border for each navigational thingy? */
+}
+
 main{
     min-height: calc(100vh - 300px);
 }
@@ -65,9 +72,13 @@ main{
 
 
 /* -------------- INNER LAYOUT -------------- */
+/* header{
+    position: sticky;
+    top: 0;
+} */
 nav{
     position: sticky;
-    top: 50px;
+    top: var(--vlarge);
 }
 
 main section{ /* select each "section" in main */
@@ -87,6 +98,7 @@ main section{ /* select each "section" in main */
 body{
     background: hsl(230, 50%, 10%);
 }
+
 body, nav a{
     font-family: var(--mfont);
     text-shadow: 0 0 2px black;
@@ -94,9 +106,9 @@ body, nav a{
     font-size: var(--large);
 }
 
-nav{
+/* nav{
 
-}
+} */
 
 nav a{
     font-size: var(--vlarge);
@@ -107,6 +119,7 @@ nav a{
     transition: border .5s;
 }
 nav a:hover{
+    color: var(--mtextColorLight);
     border-color: var(--bgColorLighter);
     
     transition: border .5s;
@@ -116,7 +129,7 @@ main{
 }
 
 main section:not(#intro) {
-    border-top: 3px solid white;
+    border-top: 10px solid var(--bgColorLighter);
 } 
 
 
@@ -125,4 +138,25 @@ main section:not(#intro) {
 
 
 
+/* -------------- Spesific FLUFF -------------- */
+#about address {
+    position: relative;
+    top: 0;
+    left: 0;
+    font-family: edo, Helvetica, sans-serif;
+}
 
+#about address a {
+    color: hsl(300, 100%, 60%);
+}
+
+#about img {
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+#about{
+    
+}
