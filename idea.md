@@ -50,7 +50,7 @@ ___
         * 
 * ~~Get permission from the dude to use content.~~ DONE.
 ```
---Candidate 108-- have my personal explicit permission to use my music and art, for any purpose regarding his work (the project), and may use this on the web, and other media for the duration of his association with uib.
+-- Candidate 108 -- have my personal explicit permission to use my music and art, for any purpose regarding his work (the project), and may use this on the web, and other media for the duration of his association with uib.
 Media by name of artist:
 Steven Silverheart, Clusterbuster, and other relevant works owned by the author.
 ``` 

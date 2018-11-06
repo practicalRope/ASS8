@@ -70,8 +70,10 @@ nav{
     top: 50px;
 }
 
-main{
-
+main section{ /* select each "section" in main */
+    min-height: 100vh;
+    margin-bottom: 10vh; /* used to give sections breathingroom */
+    padding: 30px; /* room for text to breathe */
 }
 
 
@@ -81,7 +83,7 @@ main{
 
 
 
-/* -------------- MAIN FLUFF -------------- */
+/* -------------- FLUFF -------------- */
 body{
     background: hsl(230, 50%, 10%);
 }
@@ -113,12 +115,13 @@ main{
     background-color: var(--bgColorLight);
 }
 
+main section:not(#intro) {
+    border-top: 3px solid white;
+} 
 
 
 
 
-
-/* -------------- INNER FLUFF -------------- */
 
 
 
