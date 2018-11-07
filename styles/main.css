@@ -27,64 +27,65 @@
 :root{
     --mfont: vcr, helvetica;
 
-    --vlarge: 40px;
-    --large: 20px;
+    --large: 50px;
+    --medium: 40px;
+    --small: 20px;
+    --xsmall: 15px;
 
     --mtextColor: hsla(0, 0%, 100%, 0.7);
     --mtextColorLight: hsla(0, 0%, 95%, 1);
 
-    --bgColorLight: hsl(250, 100%, 25%);
+    --bgColorLight: hsl(250, 100%, 25%); /*also known as #15007f */
     --bgColorLighter: hsl(250, 100%, 50%);
     --bgColorDark: hsl(250, 100%, 20%);
-
 }
-
-
-
-
 
 /* -------------- MAIN LAYOUT -------------- */
 html,body{
-    min-height: 100vh;
+    /* min-height: 100vh; */
     margin: 0;
 }
+
 header,main,footer{
     margin: 0 auto;
     max-width: 1024px;
     box-sizing: border-box;
-    padding: 15px; /* the main content padding */
-}
-header,footer{
-    min-height: 150px;
-}
-
-nav a{
-    /* padding/ margin/ border for each navigational thingy? */
 }
 
 main{
-    min-height: calc(100vh - 300px);
+    min-height: 100vh;
 }
-
-
-
-
 
 
 /* -------------- INNER LAYOUT -------------- */
-/* header{
-    position: sticky;
-    top: 0;
-} */
-nav{
-    position: sticky;
-    top: var(--vlarge);
+
+header h1{
+    text-shadow: 
+        2px 2px 1px rgb(0, 255, 136),
+        -2px -2px 1px rgb(204, 0, 255);
 }
 
+nav{
+    width: 100%;
+    display: flex;
+    justify-content:  space-between;
+    flex-wrap: wrap;
+}
+nav a{
+    min-width: calc(100% / 10);
+    padding: 5px 30px 0 5px;
+}
+
+footer{
+    min-height: 300px;
+    padding: 0 10px;
+}
+
+
 main section{ /* select each "section" in main */
-    min-height: 100vh;
-    margin-bottom: 10vh; /* used to give sections breathingroom */
-    padding: 30px; /* room for text to breathe */
+    /* min-height: 50vh; */
+    margin-top: 100px;
+    padding: 30px;
 }
 
 
@@ -101,20 +102,34 @@ body{
 
 body, nav a{
     font-family: var(--mfont);
-    text-shadow: 0 0 2px black;
+    text-shadow: 1px 1px 2px black;
     color: var(--mtextColor);
+    font-size: var(--small);
+}
+header h1 {
+    font-family: edo;
     font-size: var(--large);
+    color: var(--mtextColorLight);
 }
 
-/* nav{
+section {
+    font-size: var(--xsmall);
+    background-color: var(--bgColorLight);
+    border-top: 1px solid var(--bgColorLighter);
+} 
 
-} */
+section a{
+    color: hsl(300, 100%, 60%);
+}
+section a:visited{
+
+}
 
 nav a{
-    font-size: var(--vlarge);
+    font-size: var(--small);
 
     text-decoration: none;
-    border-bottom: 3px solid var(--bgColorLight);
+    border-bottom: 5px solid var(--bgColorLight);
 
     transition: border .5s;
 }
@@ -124,39 +139,18 @@ nav a:hover{
     
     transition: border .5s;
 }
-main{
-    background-color: var(--bgColorLight);
+
+
+
+
+
+
+
+/* -------------- Section Spesific FLUFF -------------- */
+#intro{
+    margin: 10px 0 0 0;
 }
 
-main section:not(#intro) {
-    border-top: 10px solid var(--bgColorLighter);
-} 
-
-
-
-
-
-
-
-/* -------------- Spesific FLUFF -------------- */
 #about address {
-    position: relative;
-    top: 0;
-    left: 0;
     font-family: edo, Helvetica, sans-serif;
-}
-
-#about address a {
-    color: hsl(300, 100%, 60%);
-}
-
-#about img {
-    position: relative;
-    width: 100%;
-    top: 0;
-    left: 0;
-}
-
-#about{
-    
 }
