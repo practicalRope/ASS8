@@ -1,6 +1,9 @@
 Licenses:
+- none - signifies that the author has uploaded the font,
+but no license, exept marking the font as free for any use.
 
 ------------------------------   azionix
+Author - Mixo FX
 https://www.dafont.com/azonix.font?l[]=10&l[]=1
 
 Note of the author
@@ -11,6 +14,7 @@ DO NOT REDISTRIBUTE
 This font is free for both personal & commercial use​​​​​​​.
 
 ------------------------------   Caviar Dreams
+Author - Lauren Thompson
 https://www.dafont.com/caviar-dreams.font?l[]=10&l[]=1
 
 Note of the author
@@ -20,6 +24,15 @@ Free for personal use & commercial use. Donations always appreciated :) :)
 
 
 ------------------------------   Edo SZ
+Author - Vic Fieger
 https://www.dafont.com/edo-sz.font?l[]=10&l[]=1
+
+ - none -
+
+
+
+------------------------------   VCR OSD MONO
+Author - Riciery Leal
+https://www.dafont.com/vcr-osd-mono.font
 
  - none -

@@ -1,19 +1,3 @@
-/* Fonts and Variables */
-/* @font-face{
-    font-family: caviar;
-    src: url(../fonts/CaviarDreams.ttf);
-}
-@font-face{
-    font-family: caviar;
-    src: url(../fonts/CaviarDreams_Bold.ttf);
-    font-weight: bold;
-}
-
-@font-face{
-    font-family: azonix;
-    src: url(../fonts/Azonix.otf);
-} */
-
 @font-face{
     font-family: edo;
     src: url(../fonts/edosz.ttf);
@@ -25,20 +9,23 @@
 
 
 :root{
-    --mfont: vcr, helvetica;
+    --vcrFont: vcr, helvetica;
+    --edoFont: edo, Impact, Haettenschweiler, sans-serif;
 
     --large: 50px;
     --medium: 40px;
     --small: 20px;
-    --xsmall: 15px;
 
-    --mtextColor: hsla(0, 0%, 100%, 0.7);
+
+    --mtextColor: hsla(0, 0%, 100%, 0.8);
     --mtextColorLight: hsla(0, 0%, 95%, 1);
 
     --bgColorLight: hsl(250, 100%, 25%); /*also known as #15007f */
     --bgColorLighter: hsl(250, 100%, 50%);
-    --bgColorDark: hsl(250, 100%, 20%);
+    --bgColorDark: hsl(230, 50%, 10%);
 }
+
+
 
 /* -------------- MAIN LAYOUT -------------- */
 html,body{
@@ -59,11 +46,7 @@ main{
 
 /* -------------- INNER LAYOUT -------------- */
 
-header h1{
-    text-shadow: 
-        2px 2px 1px rgb(0, 255, 136),
-        -2px -2px 1px rgb(204, 0, 255);
-}
+
 
 nav{
     width: 100%;
@@ -76,47 +59,70 @@ nav a{
     padding: 5px 30px 0 5px;
 }
 
+@media (max-width: 430px){
+    nav a{
+        width: 100%;
+        padding: 10px 0 0 15px;
+    }
+}
+
 footer{
     min-height: 300px;
     padding: 0 10px;
 }
 
 
-main section{ /* select each "section" in main */
-    /* min-height: 50vh; */
-    margin-top: 100px;
-    padding: 30px;
+main section{
+    margin-top: 1%;
+    padding: 10px 20px;
 }
-
-
-
-
-
-
-
 
 /* -------------- FLUFF -------------- */
 body{
-    background: hsl(230, 50%, 10%);
+    background: var(--bgColorDark);
 }
 
 body, nav a{
-    font-family: var(--mfont);
+    font-family: var(--vcrFont);
     text-shadow: 1px 1px 2px black;
     color: var(--mtextColor);
     font-size: var(--small);
 }
+
 header h1 {
-    font-family: edo;
+    font-family: var(--edoFont);
     font-size: var(--large);
     color: var(--mtextColorLight);
+
+    text-shadow: 
+    2px 2px 1px rgb(0, 255, 136),
+    -2px -2px 1px rgb(204, 0, 255);
 }
 
+
+nav a{
+    text-decoration: none;
+    border-bottom: 5px solid var(--bgColorLight);
+    transition: border .5s;
+}
+nav a:hover,nav a:focus{
+    color: var(--mtextColorLight);
+    border-color: var(--bgColorLighter);
+    transition: border .3s;
+}
+
+
 section {
-    font-size: var(--xsmall);
     background-color: var(--bgColorLight);
     border-top: 1px solid var(--bgColorLighter);
-} 
+}
+
+section h2{
+    font-size: var(--medium);
+    color: var(--mtextColorLight);
+    margin: 0;
+    /* transform: translate(0,calc(var(--large) * -1)); */
+}
 
 section a{
     color: hsl(300, 100%, 60%);
@@ -125,32 +131,14 @@ section a:visited{
 
 }
 
-nav a{
-    font-size: var(--small);
-
-    text-decoration: none;
-    border-bottom: 5px solid var(--bgColorLight);
-
-    transition: border .5s;
-}
-nav a:hover{
-    color: var(--mtextColorLight);
-    border-color: var(--bgColorLighter);
-    
-    transition: border .5s;
-}
-
-
-
-
-
 
 
 /* -------------- Section Spesific FLUFF -------------- */
 #intro{
-    margin: 10px 0 0 0;
+    margin: 30px 0 0 0;
 }
 
 #about address {
     font-family: edo, Helvetica, sans-serif;
 }
+
