@@ -23,6 +23,7 @@
     --bgColorLight: hsl(250, 100%, 25%); /*also known as #15007f */
     --bgColorLighter: hsl(250, 100%, 50%);
     --bgColorDark: hsl(230, 50%, 10%);
+    --aaa: #14007a ;
 }
 
 
@@ -55,31 +56,22 @@ nav{
     flex-wrap: wrap;
 }
 
-@media (min-width: 430px){
-    nav{
-        position: fixed;
-        top: 0;
-        background-color: var(--bgColorDark);
-    }
-}
 
 nav a{
-    min-width: calc(100% / 10);
+    min-width: 10%;
     padding: 5px 30px 0 5px;
 }
 
-@media (max-width: 430px){
-    nav a{
-        width: 100%;
-        padding: 10px 0 0 15px;
-    }
-}
+
 
 
 footer{
     min-height: 300px;
     padding: 0 10px;
+
+    /* do something about footer layout*/
 }
+
 
 
 main section{
@@ -87,12 +79,47 @@ main section{
     padding: 50px 20px;
 }
 
-/* -------------- FLUFF -------------- */
-body{
-    background: var(--bgColorDark);
+/* @media for inner layout */
+/*Small*/
+@media (max-width: 430px){
+    nav a{
+        width: 100%;
+        padding: 10px 0 0 15px;
+    }
+    #floatinghelper{
+        position: fixed;
+        bottom: 0; right: 0;
+        padding: 15px;
+        background-color: var(--bgColorDark);
+
+    }
+}
+/*Large*/
+@media (min-width: 430px){
+    nav{
+        position: fixed;
+        top: 0;
+        max-width: 1024px;
+        background-color: var(--bgColorDark);
+    }
+    #floatinghelper{
+        display: none;
+        visibility: hidden;
+    }
 }
 
-body, nav a{
+
+/* -------------- FLUFF -------------- */
+body{
+    background-color: var(--bgColorDark);
+
+    background: 
+    var(--bgColorDark) 
+    url('../media/demo.svg') no-repeat center fixed;
+    background-size: 50% 50%;
+}
+
+body, nav a, #floatinghelper{
     font-family: var(--vcrFont);
     text-shadow: 1px 1px 2px black;
     color: var(--mtextColor);
@@ -125,6 +152,11 @@ nav a:hover,nav a:focus{
 section {
     background-color: var(--bgColorLight);
     border-top: 1px solid var(--bgColorLighter);
+
+    background: 
+    var(--bgColorLight) 
+    url('../media/demoF.svg') no-repeat center fixed;
+    background-size: 50% 50%;
 }
 
 section h2{
@@ -134,16 +166,18 @@ section h2{
     /* transform: translate(0,calc(var(--large) * -1)); */
 }
 
-section a{
+address a{
     color: hsl(300, 100%, 60%);
-}
-section a:visited{
-
 }
 
 
 
 /* -------------- Section Spesific FLUFF -------------- */
+#floatinghelper{
+    background: rgb(0, 78, 92);
+    border-radius: 10px 0 0 0;
+}
+
 #intro{
     margin: 30px 0 0 0;
 }
