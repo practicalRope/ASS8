@@ -20,11 +20,15 @@
     --mtextColor: hsla(0, 0%, 100%, 0.7);
     --mtextColorLight: hsla(0, 0%, 95%, 1);
 
+    --linkColor: hsl(300, 100%, 60%);
+
     --bgColorLight: hsl(250, 100%, 25%); /*also known as #15007f */
     --bgColorLighter: hsl(250, 100%, 50%);
     --bgColorDark: hsl(230, 50%, 10%);
-    --aaa: #2a00ff ;
+
 }
+
+
 
 
 
@@ -45,9 +49,12 @@ main{
 }
 
 
+
+
+
+
+
 /* -------------- INNER LAYOUT -------------- */
-
-
 
 nav{
     width: 100%;
@@ -81,7 +88,7 @@ main section{
 
 /* @media for inner layout */
 /*Small*/
-@media (max-width: 430px){
+@media (max-width: 850px){
     nav a{
         width: 100%;
         padding: 10px 0 0 15px;
@@ -94,7 +101,7 @@ main section{
     }
 }
 /*Large*/
-@media (min-width: 430px){
+@media (min-width: 850px){
     nav{
         position: fixed;
         top: 0;
@@ -112,6 +119,55 @@ nav, #floatinghelper{
     z-index: 10;
 }
 
+
+/* article ('similar artist') layout */
+#similar article{
+    margin: 30px 10px 0;
+    display: grid;
+    grid-template: 
+        "song   title" calc(var(--medium) * .8)
+        "song   desc" auto
+        / auto auto;
+    gap: 20px;
+}
+#similar iframe{
+    grid-area: song;
+}
+#similar h3{
+    grid-area: title;
+}
+#similar p{
+    grid-area: desc;
+}
+
+@media (max-width: 850px){
+    #similar article{
+        margin: 30px 10px 0;
+        display: grid;
+        grid-template: 
+            "song" auto
+            "title" calc(var(--medium) * .8)
+            "desc" auto
+            / auto;
+        gap: 20px;
+    }
+    #similar iframe{
+        margin: auto;
+        grid-area: song;
+    }
+    #similar h3{
+        grid-area: title;
+    }
+    #similar p{
+        grid-area: desc;
+    }
+}
+
+
+
+
+
+
 /* -------------- FLUFF -------------- */
 body{
     background-color: var(--bgColorDark);
@@ -119,7 +175,7 @@ body{
     background: 
     var(--bgColorDark) 
     url('../media/demo.svg') no-repeat center fixed;
-    background-size: 50% 50%;
+    background-size: 70% 70%;
 }
 
 body, nav a, #floatinghelper{
@@ -133,7 +189,7 @@ header h1 {
     font-family: var(--edoFont);
     font-size: var(--large);
     color: var(--mtextColorLight);
-
+    margin: var(--large) 5px;
     text-shadow: 
     2px 2px 1px rgb(0, 255, 136),
     -2px -2px 1px rgb(204, 0, 255);
@@ -159,7 +215,7 @@ section {
     background: 
     var(--bgColorLight) 
     url('../media/demoF.svg') no-repeat center fixed;
-    background-size: 50% 50%;
+    background-size: 70% 70%;
 }
 
 section h2{
@@ -170,8 +226,14 @@ section h2{
 }
 
 address a{
-    color: hsl(300, 100%, 60%);
+    color: var(--linkColor);
 }
+
+
+
+
+
+
 
 
 
@@ -190,11 +252,11 @@ address {
 }
 
 /* bg gfx fix , because of last "section"v bottom image cuts bg off*/
-#genre{
+#similar{
     position: relative;
     z-index: 1;
 }
-#genre::after{
+#similar::after{
     content: '';
     position: absolute;
     width: 100%;
@@ -202,4 +264,14 @@ address {
     left: 0; bottom: 0;
     z-index: -1;
     background: linear-gradient(hsla(0, 0%, 0%, 0),var(--bgColorLight))
+}
+
+/* ------ content fluff ------- */
+.contentImg{
+    width: 33%;
+    margin: 20px;
+}
+
+.artist a{
+    color: var(--linkColor);
 }
