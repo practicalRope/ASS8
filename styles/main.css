@@ -91,7 +91,6 @@ main section{
         bottom: 0; right: 0;
         padding: 15px;
         background-color: var(--bgColorDark);
-
     }
 }
 /*Large*/
@@ -108,6 +107,10 @@ main section{
     }
 }
 
+/* Nav fix */
+nav, #floatinghelper{
+    z-index: 10;
+}
 
 /* -------------- FLUFF -------------- */
 body{
