@@ -69,7 +69,7 @@ main{
 
 
 footer{
-    min-height: 300px;
+    min-height: 500px;
     padding: 20px;
 
     text-align: center;
@@ -77,18 +77,20 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
 
 }
 footer *{
     max-width: 700px;
 }
 
-
-
 main section{
-    margin-top: 5%;
+    margin-top: 20%;
     padding: 50px 20px;
+}
+
+main section img{
+    margin: 20px;
 }
 
 /* @media for inner layout */
