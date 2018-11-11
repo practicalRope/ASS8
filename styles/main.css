@@ -21,6 +21,7 @@
     --mtextColorLight: hsla(0, 0%, 95%, 1);
 
     --linkColor: hsl(300, 100%, 60%);
+    --linkColorVisited: hsl(280, 100%, 60%);
 
     --bgColorLight: hsl(250, 100%, 25%); /*also known as #15007f */
     --bgColorLighter: hsl(250, 100%, 50%);
@@ -34,7 +35,7 @@
 
 /* -------------- MAIN LAYOUT -------------- */
 html,body{
-    /* min-height: 100vh; */
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -56,7 +57,7 @@ main{
 
 /* -------------- INNER LAYOUT -------------- */
 
-nav{
+#mainNav{
     width: 100%;
     display: flex;
     justify-content:  space-between;
@@ -64,7 +65,7 @@ nav{
 }
 
 
-nav a{
+#mainNav a{
     min-width: 10%;
     padding: 5px 30px 0 5px;
 }
@@ -74,9 +75,18 @@ nav a{
 
 footer{
     min-height: 300px;
-    padding: 0 10px;
+    padding: 20px;
 
-    /* do something about footer layout*/
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+
+}
+footer *{
+    max-width: 700px;
 }
 
 
@@ -89,20 +99,18 @@ main section{
 /* @media for inner layout */
 /*Small*/
 @media (max-width: 850px){
-    nav a{
+    #mainNav a{
         width: 100%;
         padding: 10px 0 0 15px;
     }
     #floatinghelper{
         position: fixed;
         bottom: 0; right: 0;
-        padding: 15px;
-        background-color: var(--bgColorDark);
     }
 }
 /*Large*/
 @media (min-width: 850px){
-    nav{
+    #mainNav{
         position: fixed;
         top: 0;
         max-width: 1024px;
@@ -114,8 +122,8 @@ main section{
     }
 }
 
-/* Nav fix */
-nav, #floatinghelper{
+/* #mainNav fix */
+#mainNav, #floatinghelper{
     z-index: 10;
 }
 
@@ -178,7 +186,7 @@ body{
     background-size: 70% 70%;
 }
 
-body, nav a, #floatinghelper{
+body, #mainNav a, #floatinghelper{
     font-family: var(--vcrFont);
     text-shadow: 1px 1px 2px black;
     color: var(--mtextColor);
@@ -196,12 +204,12 @@ header h1 {
 }
 
 
-nav a{
+#mainNav a{
     text-decoration: none;
     border-bottom: 5px solid var(--bgColorLight);
     transition: border .5s;
 }
-nav a:hover,nav a:focus{
+#mainNav a:hover,#mainNav a:focus{
     color: var(--mtextColorLight);
     border-color: var(--bgColorLighter);
     transition: border .3s;
@@ -225,6 +233,12 @@ section h2{
     /* transform: translate(0,calc(var(--large) * -1)); */
 }
 
+
+address {
+    font-family: edo, Helvetica, sans-serif;
+    font-size: var(--medium);
+}
+
 address a{
     color: var(--linkColor);
 }
@@ -238,18 +252,12 @@ address a{
 
 
 /* -------------- Section Spesific FLUFF -------------- */
-#floatinghelper{
-    background: rgb(0, 78, 92);
-    border-radius: 10px 0 0 0;
-}
+
 
 #intro{
     margin: 30px 0 0 0;
 }
 
-address {
-    font-family: edo, Helvetica, sans-serif;
-}
 
 /* bg gfx fix , because of last "section"v bottom image cuts bg off*/
 #similar{
@@ -274,4 +282,79 @@ address {
 
 .artist a{
     color: var(--linkColor);
+}
+.artist a:visited{
+    color: var(--linkColorVisited);
+}
+
+@media (max-width: 850px){
+    #similar article{
+        border-bottom: 1px solid var(--bgColorLighter);
+        padding-top: 10px;
+    }
+}
+
+
+/* back up helper */
+#floatinghelper{
+    background: var(--bgColorDark);
+    opacity: .8;
+    padding: 15px;
+    transition: background 1s;
+}
+#floatinghelper:hover{
+    background: var(--bgColorLighter);
+    opacity: 1;
+    transition: background 1s;
+}
+
+
+
+
+/* js inserted elements and class modification on article*/
+#similar{
+    min-height: 600px;
+}
+.show,
+.hide{
+    position: absolute;
+    bottom: 100px;
+}
+.show{
+    opacity: 1;
+    transition: opacity 1s, transform 1s;
+}
+.hide{
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+}
+
+#subNav{
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+#subNav button{
+    text-shadow: 1px 1px 2px black;
+    color: var(--linkColor);
+    font-family: var(--edoFont);
+    font-size: var(--medium);
+    border: none;
+    background: none;
+    transition: color .2s;
+}
+#subNav button:hover{
+    color: var(--linkColorVisited);
+    transition: color .2s;
+    cursor: pointer;
+}
+#subNav button:active{
+    opacity: .6;
+}
+#subNav span{
+    margin-top: var(--medium);
+    color: var(--linkColorVisited);
 }
