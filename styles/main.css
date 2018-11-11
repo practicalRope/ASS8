@@ -372,7 +372,7 @@ address a{
     color: var(--linkColorVisited);
 }
 
-@media (max-width: 400px){
+@media (max-width: 450px){
     #subNav button{
         font-size: var(--small);
     }
