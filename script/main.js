@@ -1,40 +1,81 @@
+function createNavNode(){
+    const nav = document.createElement('nav'),
+    prev = document.createElement('button'),
+    nex = document.createElement('button'),
+    text = document.createElement('span');
 
-// let nodes = document.querySelectorAll('.artist');
+    prev.innerText = "◄ previous";
+    prev.id = "subPrev";
+    prev.onclick = previous;
 
-// console.log(nodes);
+    nex.innerText = "next ►";
+    nex.id = "subNext";
+    nex.onclick = next;
 
-// window.onkeydown = k =>{
-//     if(k.key === ' ') nodes.forEach((n,i) =>{ i ? n.style.display = 'none' : null; })
-// }
+    nav.id = 'subNav';
+    nav.appendChild(prev);
+    nav.appendChild(text);
+    nav.appendChild(nex);
 
-// let currentShown = 0;
+    let o = {
+        navbox: nav,
+        prevButton: prev,
+        nextButton: nex,
+        text: text
+    };
+    return o;
+}
+
+function Node(i,n){
+    this.idx = i;
+    this.n = n;
+    this.title = n.querySelector('h3').innerText;
+}
+Node.prototype.hide = function(){
+    this.n.style.display = 'none';
+}
+Node.prototype.show = function(){
+    this.n.style.removeProperty('display');
+}
+
+const domNodes = document.querySelectorAll('.artist');
+const navigation = createNavNode();
+let currentIdx = 0;
+let nodes = [];
 
 
+domNodes.forEach((n,i) =>{
+    nodes.push(new Node(i,domNodes[i]));
+});
+update();
+similar.appendChild(navigation.navbox);
 
-// function decrement(){
-//     if(currentShown === 0) return;
 
-//     hide(currentShown);
-//     currentShown -= 1;
-//     show(currentShown);
-// }
+function next(){
+    currentIdx++;
+    update()
+}
+function previous(){
+    currentIdx--;
+    update()
+}
 
-// function increment(){
-//     if(currentShown === nodes.length-1) return;
 
-//     show(currentShown);
-//     currentShown += 1;
-//     hide(currentShown);
-// }
+function update(){
+    if(currentIdx > nodes.length - 1) currentIdx = 0;
+    if(currentIdx < 0) currentIdx = nodes.length - 1;
 
-// function hide(idx){
-//     let tmp = nodes[idx].getElementsByTagName('iframe')
+    nodes.forEach((n,i)=>{
+        i===currentIdx ? n.show() : n.hide();
+    });
     
-    
-//     nodes[idx].style.display = 'none';
-// }
+    navigation.text.innerText = `${currentIdx+1} / ${nodes.length}`;
+}
 
-// function show(idx){
-//     nodes[idx].style.removeProperty('display');
-// }
+
+
+
+
+
+
 
