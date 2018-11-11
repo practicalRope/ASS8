@@ -32,10 +32,10 @@ function Node(i,n){
     this.title = n.querySelector('h3').innerText;
 }
 Node.prototype.hide = function(){
-    this.n.style.display = 'none';
+    this.n.setAttribute('class','hide artist');
 }
 Node.prototype.show = function(){
-    this.n.style.removeProperty('display');
+    this.n.setAttribute('class','show artist');
 }
 
 const domNodes = document.querySelectorAll('.artist');
