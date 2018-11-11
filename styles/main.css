@@ -31,8 +31,6 @@
 
 
 
-
-
 /* -------------- MAIN LAYOUT -------------- */
 html,body{
     min-height: 100vh;
@@ -48,9 +46,6 @@ header,main,footer{
 main{
     min-height: 100vh;
 }
-
-
-
 
 
 
@@ -148,6 +143,10 @@ main section{
     grid-area: desc;
 }
 
+#similar{
+    min-height: 600px;
+}
+
 @media (max-width: 850px){
     #similar article{
         margin: 30px 10px 0;
@@ -169,10 +168,19 @@ main section{
     #similar p{
         grid-area: desc;
     }
+
+
+    #similar{
+        min-height: 800px;
+    }
 }
 
 
-
+@media (max-width: 800px){
+    #similar{
+        min-height: 900px;
+    }
+}
 
 
 
@@ -233,6 +241,16 @@ section h2{
     /* transform: translate(0,calc(var(--large) * -1)); */
 }
 
+section a{
+    color: var(--linkColor);
+}
+section a:visited{
+    color: var(--linkColorVisited);
+}
+section a:hover{
+    opacity: .9;
+}
+
 
 address {
     font-family: edo, Helvetica, sans-serif;
@@ -242,12 +260,6 @@ address {
 address a{
     color: var(--linkColor);
 }
-
-
-
-
-
-
 
 
 
@@ -287,6 +299,8 @@ address a{
     color: var(--linkColorVisited);
 }
 
+
+
 @media (max-width: 850px){
     #similar article{
         border-bottom: 1px solid var(--bgColorLighter);
@@ -311,10 +325,8 @@ address a{
 
 
 
-/* js inserted elements and class modification on article*/
-#similar{
-    min-height: 600px;
-}
+/* js inserted elements and class */
+
 .show,
 .hide{
     position: absolute;
@@ -335,6 +347,7 @@ address a{
     justify-content: space-around;
     position: absolute;
     bottom: 0;
+    left: 0;
     width: 100%;
 }
 #subNav button{
@@ -357,4 +370,16 @@ address a{
 #subNav span{
     margin-top: var(--medium);
     color: var(--linkColorVisited);
+}
+
+@media (max-width: 400px){
+    #subNav button{
+        font-size: var(--small);
+    }
+    #similar{
+        min-height: 950px;
+    }
+    .artist{
+        left: 0;
+    }
 }
