@@ -125,64 +125,10 @@ main section img{
 }
 
 
-/* article ('similar artist') layout */
-#similar article{
-    margin: 30px 10px 0;
-    display: grid;
-    grid-template: 
-        "song   title" calc(var(--medium) * .8)
-        "song   desc" auto
-        / auto auto;
-    gap: 20px;
-}
-#similar iframe{
-    grid-area: song;
-}
-#similar h3{
-    grid-area: title;
-}
-#similar p{
-    grid-area: desc;
-}
-
-#similar{
-    min-height: 600px;
-}
-
-@media (max-width: 850px){
-    #similar article{
-        margin: 30px 10px 0;
-        display: grid;
-        grid-template: 
-            "song" auto
-            "title" calc(var(--medium) * .8)
-            "desc" auto
-            / auto;
-        gap: 20px;
-    }
-    #similar iframe{
-        margin: auto;
-        grid-area: song;
-    }
-    #similar h3{
-        grid-area: title;
-    }
-    #similar p{
-        grid-area: desc;
-    }
 
 
-    #similar{
-        min-height: 800px;
-    }
-}
 
 
-@media (max-width: 800px){
-    #similar{
-        min-height: 900px;
-    }
-}
 
 section:not(#similar){
     display: flex;
@@ -262,15 +208,11 @@ address {
     font-family: edo, Helvetica, sans-serif;
     font-size: var(--medium);
 }
-
-address a{
+address a {
     color: var(--linkColor);
 }
 
-
-
-/* -------------- Section Spesific FLUFF -------------- */
-
+/* top section spacing */
 #intro{
     margin: 30px 0 0 0;
 }
@@ -291,6 +233,8 @@ address a{
     background: linear-gradient(hsla(0, 0%, 0%, 0),var(--bgColorLight))
 }
 
+
+
 /* ------ content fluff ------- */
 .contentImg{
     width: 33%;
@@ -306,12 +250,6 @@ address a{
 
 
 
-@media (max-width: 850px){
-    #similar article{
-        border-bottom: 1px solid var(--bgColorLighter);
-        padding-top: 10px;
-    }
-}
 
 
 /* back up helper */
@@ -330,27 +268,33 @@ address a{
 
 
 
+
+
 /* js inserted elements and class */
 
 .show,
 .hide{
-    position: absolute;
-    bottom: 100px;
+    position: relative;
+    bottom: 0;
 }
 .show{
     opacity: 1;
-    transition: opacity 1s, transform 1s;
+    transition: opacity .5s, transform 1s;
 }
 .hide{
-    transform: translateY(-20px);
+    position: absolute;
+    transform: translateY(-30px);
     opacity: 0;
+    pointer-events: none;
     visibility: hidden;
+    transition: opacity .5s, transform 1s;
 }
+
 
 #subNav{
     display: flex;
-    justify-content: space-around;
-    position: absolute;
+    justify-content: space-evenly;
+    position: relative;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -373,18 +317,75 @@ address a{
     opacity: .6;
 }
 #subNav span{
-    margin-top: var(--medium);
+    margin: auto;
     color: var(--linkColorVisited);
 }
 
-@media (max-width: 450px){
+
+@media (max-width:500px){
     #subNav button{
         font-size: var(--small);
     }
-    #similar{
-        min-height: 950px;
-    }
-    .artist{
-        left: 0;
-    }
 }
+
+
+/* article ('similar artist') 'special' layout */
+#similar article{
+    margin: 30px 10px 0;
+    display: grid;
+    grid-template: 
+        "song   title" calc(var(--medium) * .8)
+        "song   desc" auto
+        / auto auto;
+    gap: 20px;
+}
+#similar iframe{
+    grid-area: song;
+}
+#similar h3{
+    grid-area: title;
+}
+#similar p{
+    grid-area: desc;
+}
+
+#similar{
+    min-height: 600px;
+}
+
+@media (max-width: 850px){
+    #similar article{
+
+        border-bottom: 1px solid var(--bgColorLighter);
+        padding-top: 10px;
+
+        margin: 30px 10px 0;
+        display: grid;
+        grid-template: 
+            "song" auto
+            "title" calc(var(--medium) * .8)
+            "desc" auto
+            / auto;
+        gap: 20px;
+    }
+    #similar iframe{
+        margin: auto;
+        grid-area: song;
+    }
+    #similar h3{
+        grid-area: title;
+    }
+    #similar p{
+        grid-area: desc;
+    }
+
+    #similar{
+        min-height: 850px;
+    }
+
+
+}
+
+
+
+
