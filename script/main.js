@@ -4,13 +4,16 @@ function createNavNode(){
     nex = document.createElement('button'),
     text = document.createElement('span');
 
+    prev.type = 'button';
     prev.innerText = "◄ previous";
     prev.id = "subPrev";
     prev.onclick = previous;
 
+    nex.type = 'button';
     nex.innerText = "next ►";
     nex.id = "subNext";
     nex.onclick = next;
+
 
     nav.id = 'subNav';
     nav.appendChild(prev);
@@ -73,8 +76,28 @@ function update(){
 }
 
 
+window.addEventListener('keydown',(k)=>{
+        if(k.key === 'ArrowLeft') {
+            previous();
+            k.preventDefault();
+        }
+        if(k.key === 'ArrowRight') {
+            next();
+            k.preventDefault();
+        }
+},false)
 
 
+// It would be cool to do touch, but time is of the essence
+// window.addEventListener('touchstart',(t)=>{
+
+    
+    
+// },false)
+// window.addEventListener('touchmove',(t)=>{
+    
+
+// },false)
 
 
 
