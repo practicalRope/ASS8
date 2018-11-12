@@ -236,10 +236,7 @@ address a {
 
 
 /* ------ content fluff ------- */
-.contentImg{
-    width: 33%;
-    margin: 20px;
-}
+
 
 .artist a{
     color: var(--linkColor);
@@ -298,6 +295,7 @@ address a {
     bottom: 0;
     left: 0;
     width: 100%;
+    margin-top: 5px;
 }
 #subNav button{
     text-shadow: 1px 1px 2px black;
@@ -349,9 +347,6 @@ address a {
     grid-area: desc;
 }
 
-#similar{
-    min-height: 600px;
-}
 
 @media (max-width: 850px){
     #similar article{
@@ -379,10 +374,15 @@ address a {
         grid-area: desc;
     }
 
-    #similar{
-        min-height: 850px;
-    }
 
+    /* The '!importand' is needed to overwrite the iframe inline style.
+        Only in edge cases should using such operators be considered.
+    */
+    #similar iframe{
+        width: 100% !important;
+        height: calc(1.2 * 100vw) !important;
+        min-height: 433px;
+    }
 
 }
 
