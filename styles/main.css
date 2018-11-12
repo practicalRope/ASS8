@@ -184,7 +184,10 @@ main section img{
     }
 }
 
-
+section:not(#similar){
+    display: flex;
+    flex-flow: column;
+}
 
 /* -------------- FLUFF -------------- */
 body{
@@ -254,6 +257,7 @@ section a:hover{
 }
 
 
+
 address {
     font-family: edo, Helvetica, sans-serif;
     font-size: var(--medium);
@@ -266,7 +270,6 @@ address a{
 
 
 /* -------------- Section Spesific FLUFF -------------- */
-
 
 #intro{
     margin: 30px 0 0 0;
