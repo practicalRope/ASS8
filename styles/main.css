@@ -70,7 +70,7 @@ main{
 
 footer{
     min-height: 500px;
-    padding: 20px;
+    padding: 20px 20px 50px;
 
     text-align: center;
 
@@ -128,10 +128,6 @@ main section img{
 }
 
 
-
-
-
-
 #intro,
 #music,
 #retro{
@@ -139,7 +135,10 @@ main section img{
     flex-flow: column;
 }
 
-
+/* give an opportunity to see more of the background */
+img[src="media/endb.svg"]{
+    margin-bottom: 10%;
+}
 
 
 /* -------------- FLUFF -------------- */
