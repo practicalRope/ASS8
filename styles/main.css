@@ -149,7 +149,7 @@ body{
     background: 
     var(--bgColorDark) 
     url('../media/demo.svg') no-repeat center fixed;
-    background-size: 70% 70%;
+    background-size: 80% 80%;
 }
 
 body, #mainNav a, #floatinghelper{
@@ -189,7 +189,7 @@ section {
     background: 
     var(--bgColorLight) 
     url('../media/demoF.svg') no-repeat center fixed;
-    background-size: 70% 70%;
+    background-size: 80% 80%;
 }
 
 section h2{
