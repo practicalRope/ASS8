@@ -87,6 +87,7 @@ footer *{
 main section{
     margin-top: 20%;
     padding: 50px 20px;
+    text-align: justify;
 }
 
 main section img{
@@ -106,7 +107,7 @@ main section img{
     }
 }
 /*Large*/
-@media (min-width: 850px){
+@media (min-width: 851px){
     #mainNav{
         position: fixed;
         top: 0;
@@ -129,11 +130,15 @@ main section img{
 
 
 
-
-section:not(#similar){
+#intro,
+#music,
+#retro{
     display: flex;
     flex-flow: column;
 }
+
+
+
 
 /* -------------- FLUFF -------------- */
 body{
@@ -189,7 +194,6 @@ section h2{
     font-size: var(--medium);
     color: var(--mtextColorLight);
     margin: 0;
-    /* transform: translate(0,calc(var(--large) * -1)); */
 }
 
 section a{
@@ -374,18 +378,17 @@ address a {
         grid-area: desc;
     }
 
+}
 
+@media (max-width: 450px){
     /* The '!importand' is needed to overwrite the iframe inline style.
         Only in edge cases should using such operators be considered.
     */
     #similar iframe{
         width: 100% !important;
         height: calc(1.2 * 100vw) !important;
-        min-height: 433px;
+        min-height: 400px;
     }
-
 }
-
-
 
 
