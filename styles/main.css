@@ -87,6 +87,8 @@ footer *{
 main section{
     margin-top: 20%;
     padding: 50px 20px;
+}
+main section p{
     text-align: justify;
 }
 
@@ -161,7 +163,7 @@ header h1 {
     font-family: var(--edoFont);
     font-size: var(--large);
     color: var(--mtextColorLight);
-    margin: var(--large) 5px;
+    margin: calc(var(--large)*1.5) 20px;
     text-shadow: 
     2px 2px 1px rgb(0, 255, 136),
     -2px -2px 1px rgb(204, 0, 255);
