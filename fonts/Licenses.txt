@@ -1,4 +1,4 @@
-Licenses:
+﻿Licenses:
 - none - signifies that the author has uploaded the font,
 but no license, exept marking the font as free for any use.
 
@@ -36,3 +36,10 @@ Author - Riciery Leal
 https://www.dafont.com/vcr-osd-mono.font
 
  - none -
+
+------------------------------   Retron 2000 à € by Daymarius 
+Author - Daymarius
+https://www.dafont.com/retron2000.font?l[]=10&l[]=1
+
+Note of the author
+This font is free for commercial use.
