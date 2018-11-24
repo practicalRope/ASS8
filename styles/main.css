@@ -2,9 +2,17 @@
     font-family: edo;
     src: url(../fonts/edosz.ttf);
 }
+/* Previous font (removed)
 @font-face{
     font-family: vcr;
     src: url(../fonts/VCR_OSD_MONO_1.001.ttf);
+}
+*/
+
+/* Slightly more readable font, while simmilar enough with the original theme */
+@font-face{
+    font-family: vcr;
+    src: url(../fonts/Retron2000.ttf);
 }
 
 
@@ -128,13 +136,6 @@ main section img{
 }
 
 
-#intro,
-#music,
-#retro{
-    display: flex;
-    flex-flow: column;
-}
-
 /* give an opportunity to see more of the background */
 img[src="media/endb.svg"]{
     margin-bottom: 10%;
@@ -164,8 +165,8 @@ header h1 {
     color: var(--mtextColorLight);
     margin: calc(var(--large)*1.5) 20px;
     text-shadow: 
-    2px 2px 1px rgb(0, 255, 136),
-    -2px -2px 1px rgb(204, 0, 255);
+    2px 1px 1px rgb(0, 255, 136),
+    -2px -1px 1px rgb(204, 0, 255);
 }
 
 
@@ -393,3 +394,26 @@ address a {
 }
 
 
+
+#intro p,
+#music p,
+#retro p{
+    
+}
+
+
+/* 
+- putting image css, in stylesheet, instead of in markup as to adhere closer to original task of
+assignement 8.
+- declaring rules for each image individually, such that one may change any spesific image
+*/
+#music img:nth-child(1){
+    float:right; 
+    max-width:30%;
+    min-width: 200px;
+}
+#music img:nth-child(2){
+    float:right; 
+    max-width:30%;
+    min-width: 200px;
+}
