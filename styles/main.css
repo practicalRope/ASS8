@@ -2,15 +2,16 @@
     font-family: edo;
     src: url(../fonts/edosz.ttf);
 }
-/* Previous font (removed)
-@font-face{
+/* Previous font (removed) */
+/* @font-face{
     font-family: vcr;
     src: url(../fonts/VCR_OSD_MONO_1.001.ttf);
-}
-*/
+}  */
+
 
 /* Slightly more readable font, while simmilar enough with the original theme */
 @font-face{
+
     font-family: vcr;
     src: url(../fonts/Retron2000.ttf);
 }
@@ -28,8 +29,9 @@
     --mtextColor: hsla(0, 0%, 100%, 0.7);
     --mtextColorLight: hsla(0, 0%, 95%, 1);
 
-    --linkColor: hsl(300, 100%, 60%);
-    --linkColorVisited: hsl(280, 100%, 60%);
+    --linkColor: hsl(320, 100%, 60%);
+    --linkColorVisited: hsl(220, 100%, 75%);
+    --linkHoverColor: hsl(300, 100%, 50%);
 
     --bgColorLight: hsl(250, 100%, 25%); /*also known as #15007f */
     --bgColorLighter: hsl(250, 100%, 50%);
@@ -40,6 +42,9 @@
 
 
 /* -------------- MAIN LAYOUT -------------- */
+html{
+    scroll-behavior: smooth;
+}
 html,body{
     min-height: 100vh;
     margin: 0;
@@ -97,11 +102,7 @@ main section{
     padding: 50px 20px;
 }
 main section p{
-    text-align: justify;
-}
-
-main section img{
-    margin: 20px;
+    /* text-align: justify; */
 }
 
 /* @media for inner layout */
@@ -145,11 +146,10 @@ img[src="media/endb.svg"]{
 /* -------------- FLUFF -------------- */
 body{
     background-color: var(--bgColorDark);
-
     background: 
     var(--bgColorDark) 
     url('../media/demo.svg') no-repeat center fixed;
-    background-size: 80% 80%;
+    background-size: 75%;
 }
 
 body, #mainNav a, #floatinghelper{
@@ -189,7 +189,7 @@ section {
     background: 
     var(--bgColorLight) 
     url('../media/demoF.svg') no-repeat center fixed;
-    background-size: 80% 80%;
+    background-size: 75%;
 }
 
 section h2{
@@ -198,14 +198,14 @@ section h2{
     margin: 0;
 }
 
-section a{
+section a:link{
     color: var(--linkColor);
 }
 section a:visited{
     color: var(--linkColorVisited);
 }
 section a:hover{
-    opacity: .9;
+    color: var(--linkHoverColor);
 }
 
 
@@ -242,17 +242,6 @@ address a {
 
 
 /* ------ content fluff ------- */
-
-
-.artist a{
-    color: var(--linkColor);
-}
-.artist a:visited{
-    color: var(--linkColorVisited);
-}
-
-
-
 
 
 /* back up helper */
@@ -301,7 +290,7 @@ address a {
     bottom: 0;
     left: 0;
     width: 100%;
-    margin-top: 5px;
+    margin-top: 20px;
 }
 #subNav button{
     text-shadow: 1px 1px 2px black;
@@ -313,8 +302,8 @@ address a {
     transition: color .2s;
 }
 #subNav button:hover{
-    color: var(--linkColorVisited);
-    transition: color .2s;
+    color: var(--linkHoverColor);
+    transition: color .1s;
     cursor: pointer;
 }
 #subNav button:active{
@@ -322,7 +311,7 @@ address a {
 }
 #subNav span{
     margin: auto;
-    color: var(--linkColorVisited);
+    color: var(--linkHoverColor);
 }
 
 
@@ -395,11 +384,11 @@ address a {
 
 
 
-#intro p,
+/* #intro p,
 #music p,
 #retro p{
     
-}
+} */
 
 
 /* 
@@ -407,13 +396,70 @@ address a {
 assignement 8.
 - declaring rules for each image individually, such that one may change any spesific image
 */
-#music img:nth-child(1){
+
+#music :nth-child(2) img{
     float:right; 
     max-width:30%;
     min-width: 200px;
+
+    transform: rotate(4deg);
+    margin: 3px 20px;
 }
-#music img:nth-child(2){
+#music :nth-child(5) img{
     float:right; 
     max-width:30%;
     min-width: 200px;
+    transform: rotate(-4deg);
+    margin: 3px 20px;
+}  
+#retro img{
+    float:left; 
+    max-width:30%;
+    min-width: 200px;
+    transform: rotate(4deg);
+    margin: 3px 20px;
+}
+
+
+
+iframe{
+    padding-left: 5px;
+    background: linear-gradient(var(--linkColor), rgba(0, 0, 0, 0) 50px, rgba(0, 0, 0, 0));
+}
+#intro iframe{
+    margin: 10px 20px;
+    transform: translateY(5px);
+}
+#intro iframe:nth-of-type(1){
+    float: right;
+}
+#intro iframe:nth-of-type(2){
+    float: left;
+}
+
+h2::first-letter{
+    font-family: var(--edoFont);
+    text-shadow: 2px 2px 3px black;
+    font-size: 70px;
+}
+
+
+#pBar{
+    position: fixed;
+    z-index: 99;
+    height: 5px;
+    width: 90%;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 1024px;
+}
+#pBar > div{
+    position: relative;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: var(--linkHoverColor);
 }
