@@ -33,10 +33,9 @@
     --linkColorVisited: hsl(220, 100%, 75%);
     --linkHoverColor: hsl(300, 100%, 50%);
 
-    --bgColorLight: hsl(250, 100%, 25%); /*also known as #15007f */
+    --bgColorLight: hsl(250, 100%, 25%); 
     --bgColorLighter: hsl(250, 100%, 50%);
     --bgColorDark: hsl(230, 50%, 10%);
-
 }
 
 
@@ -46,6 +45,7 @@ html{
     scroll-behavior: smooth;
 }
 html,body{
+    box-sizing: border-box;
     min-height: 100vh;
     margin: 0;
 }
@@ -98,8 +98,8 @@ footer *{
 }
 
 main section{
-    margin-top: 20%;
-    padding: 50px 20px;
+    margin-top: 10%;
+    padding: 40px 20px;
 }
 main section p{
     /* text-align: justify; */
@@ -132,7 +132,10 @@ main section p{
 }
 
 /* #mainNav fix */
-#mainNav, #floatinghelper{
+#mainNav{
+    z-index: 12;
+}
+#floatinghelper{
     z-index: 10;
 }
 
@@ -149,7 +152,7 @@ body{
     background: 
     var(--bgColorDark) 
     url('../media/demo.svg') no-repeat center fixed;
-    background-size: 75%;
+    background-size: 85% 85%;
 }
 
 body, #mainNav a, #floatinghelper{
@@ -160,10 +163,11 @@ body, #mainNav a, #floatinghelper{
 }
 
 header h1 {
+    text-align: center;
     font-family: var(--edoFont);
     font-size: var(--large);
     color: var(--mtextColorLight);
-    margin: calc(var(--large)*1.5) 20px;
+    margin: calc(var(--large)*1.5) 20px 0;
     text-shadow: 
     2px 1px 1px rgb(0, 255, 136),
     -2px -1px 1px rgb(204, 0, 255);
@@ -172,13 +176,13 @@ header h1 {
 
 #mainNav a{
     text-decoration: none;
-    border-bottom: 5px solid var(--bgColorLight);
-    transition: border .5s;
+    border-bottom: 5px solid var(--bgColorLighter);
+    transition: border .4s;
 }
 #mainNav a:hover,#mainNav a:focus{
     color: var(--mtextColorLight);
-    border-color: var(--bgColorLighter);
-    transition: border .3s;
+    border-color: var(--linkColorVisited);
+    transition: border .4s;
 }
 
 
@@ -189,13 +193,19 @@ section {
     background: 
     var(--bgColorLight) 
     url('../media/demoF.svg') no-repeat center fixed;
-    background-size: 75%;
+    background-size: 85% 85%;
 }
 
 section h2{
+    display: block;
     font-size: var(--medium);
     color: var(--mtextColorLight);
     margin: 0;
+}
+section h2::first-letter{
+    font-family: var(--edoFont);
+    text-shadow: 2px 2px 3px black;
+    font-size: 70px;
 }
 
 section a:link{
@@ -227,7 +237,7 @@ address a {
 /* bg gfx fix , because of last "section"v bottom image cuts bg off*/
 #similar{
     position: relative;
-    z-index: 1;
+    z-index: 11;
 }
 #similar::after{
     content: '';
@@ -236,7 +246,7 @@ address a {
     height: 100%;
     left: 0; bottom: 0;
     z-index: -1;
-    background: linear-gradient(hsla(0, 0%, 0%, 0),var(--bgColorLight))
+    background: linear-gradient(hsla(0, 0%, 0%, 0),var(--bgColorLight));
 }
 
 
@@ -248,7 +258,7 @@ address a {
 #floatinghelper{
     background: var(--bgColorDark);
     opacity: .8;
-    padding: 15px;
+    padding: 10px;
     transition: background 1s;
 }
 #floatinghelper:hover{
@@ -284,9 +294,12 @@ address a {
 
 
 #subNav{
+    position: sticky;
+    background: linear-gradient(hsla(0, 0%, 0%, 0),var(--bgColorLight) 60%);
+
     display: flex;
     justify-content: space-evenly;
-    position: relative;
+
     bottom: 0;
     left: 0;
     width: 100%;
@@ -345,7 +358,6 @@ address a {
 
 @media (max-width: 850px){
     #similar article{
-
         border-bottom: 1px solid var(--bgColorLighter);
         padding-top: 10px;
 
@@ -368,7 +380,6 @@ address a {
     #similar p{
         grid-area: desc;
     }
-
 }
 
 @media (max-width: 450px){
@@ -396,70 +407,78 @@ address a {
 assignement 8.
 - declaring rules for each image individually, such that one may change any spesific image
 */
-
-#music :nth-child(2) img{
-    float:right; 
-    max-width:30%;
-    min-width: 200px;
-
-    transform: rotate(4deg);
-    margin: 3px 20px;
-}
-#music :nth-child(5) img{
-    float:right; 
-    max-width:30%;
-    min-width: 200px;
-    transform: rotate(-4deg);
-    margin: 3px 20px;
-}  
-#retro img{
-    float:left; 
-    max-width:30%;
-    min-width: 200px;
-    transform: rotate(4deg);
-    margin: 3px 20px;
+main section p > img{
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px;
 }
 
+@media (min-width: 750px){
+    #music :nth-child(2) img{
+        float:right; 
+        max-width:30%;
+        min-width: 200px;
+    
+        transform: rotate(4deg);
+        margin: 3px 20px;
+    }
+    #music :nth-child(5) img{
+        float:right; 
+        max-width:30%;
+        min-width: 200px;
+        transform: rotate(-4deg);
+        margin: 3px 20px;
+    }  
+    #retro img{
+        float:left; 
+        max-width:30%;
+        min-width: 200px;
+        transform: rotate(4deg);
+        margin: 3px 20px;
+    }
+}
 
 
-iframe{
-    padding-left: 5px;
-    background: linear-gradient(var(--linkColor), rgba(0, 0, 0, 0) 50px, rgba(0, 0, 0, 0));
+
+/* #intro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#intro h2{
+    align-self: flex-start;
 }
 #intro iframe{
-    margin: 10px 20px;
-    transform: translateY(5px);
-}
-#intro iframe:nth-of-type(1){
-    float: right;
-}
-#intro iframe:nth-of-type(2){
-    float: left;
-}
+    max-width: 500px;
+    align-self: flex-end;
+} */
 
-h2::first-letter{
-    font-family: var(--edoFont);
-    text-shadow: 2px 2px 3px black;
-    font-size: 70px;
+#intro iframe{
+    display: block;
+    max-width: 450px;
+    margin: 0 auto;
+
 }
 
 
 #pBar{
     position: fixed;
     z-index: 99;
-    height: 5px;
-    width: 90%;
+    height: 3px;
+    width: 100%;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 0; right: 0;
     margin: 0 auto;
     max-width: 1024px;
 }
 #pBar > div{
     position: relative;
+    box-sizing: border-box;
     bottom: 0;
     left: 0;
     height: 100%;
     width: 0;
-    background: var(--linkHoverColor);
+    background: var(--linkColor);
+    border-top: 1px solid black;
 }

@@ -94,13 +94,11 @@ window.addEventListener('keydown',(k)=>{
 },false);
 
 // It would be cool to do touch, but time is of the essence
+// and i havent done this before, so responsiveness could become buggy
 // window.addEventListener('touchstart',(t)=>{
 
-    
-    
 // },false)
 // window.addEventListener('touchmove',(t)=>{
-    
 
 // },false)
 
@@ -115,22 +113,23 @@ function ProgressBar(){
     this.bar.id = 'pBar'
     this.progress = document.createElement('div');
     this.bar.appendChild(this.progress);
+    
     document.body.appendChild(this.bar);
 
+    this.updateProgress();
     return this;
 }
 
-ProgressBar.prototype.set = function(percentage){
-    this.value = percentage;
-    this.progress.style.width = this.value+'%';
-
+ProgressBar.prototype.updateProgress = function(){
+    let rootHeight = document.querySelector(':root').offsetHeight - window.innerHeight;
+    let val = (window.scrollY / rootHeight) * 100;
+    this.progress.style.width = val +'%';
     return this;
 }
 
-let progress = ProgressBar();
-progress.set(10);
+let progress = new ProgressBar();
 
+window.addEventListener('scroll',e=>{
+    progress.updateProgress();
+},false);
 
-
-
-// console.log(window.scrollX);
