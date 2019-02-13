@@ -2,9 +2,18 @@
     font-family: edo;
     src: url(../fonts/edosz.ttf);
 }
-@font-face{
+/* Previous font (removed) */
+/* @font-face{
     font-family: vcr;
     src: url(../fonts/VCR_OSD_MONO_1.001.ttf);
+}  */
+
+
+/* Slightly more readable font, while simmilar enough with the original theme */
+@font-face{
+
+    font-family: vcr;
+    src: url(../fonts/Retron2000.ttf);
 }
 
 
@@ -20,19 +29,23 @@
     --mtextColor: hsla(0, 0%, 100%, 0.7);
     --mtextColorLight: hsla(0, 0%, 95%, 1);
 
-    --linkColor: hsl(300, 100%, 60%);
-    --linkColorVisited: hsl(280, 100%, 60%);
+    --linkColor: hsl(320, 100%, 60%);
+    --linkColorVisited: hsl(220, 100%, 75%);
+    --linkHoverColor: hsl(300, 100%, 50%);
 
-    --bgColorLight: hsl(250, 100%, 25%); /*also known as #15007f */
+    --bgColorLight: hsl(250, 100%, 25%); 
     --bgColorLighter: hsl(250, 100%, 50%);
     --bgColorDark: hsl(230, 50%, 10%);
-
 }
 
 
 
 /* -------------- MAIN LAYOUT -------------- */
+html{
+    scroll-behavior: smooth;
+}
 html,body{
+    box-sizing: border-box;
     min-height: 100vh;
     margin: 0;
 }
@@ -85,15 +98,11 @@ footer *{
 }
 
 main section{
-    margin-top: 20%;
-    padding: 50px 20px;
+    margin-top: 10%;
+    padding: 40px 20px;
 }
 main section p{
-    text-align: justify;
-}
-
-main section img{
-    margin: 20px;
+    /* text-align: justify; */
 }
 
 /* @media for inner layout */
@@ -123,17 +132,13 @@ main section img{
 }
 
 /* #mainNav fix */
-#mainNav, #floatinghelper{
+#mainNav{
+    z-index: 12;
+}
+#floatinghelper{
     z-index: 10;
 }
 
-
-#intro,
-#music,
-#retro{
-    display: flex;
-    flex-flow: column;
-}
 
 /* give an opportunity to see more of the background */
 img[src="media/endb.svg"]{
@@ -144,11 +149,10 @@ img[src="media/endb.svg"]{
 /* -------------- FLUFF -------------- */
 body{
     background-color: var(--bgColorDark);
-
     background: 
     var(--bgColorDark) 
     url('../media/demo.svg') no-repeat center fixed;
-    background-size: 80% 80%;
+    background-size: 85% 85%;
 }
 
 body, #mainNav a, #floatinghelper{
@@ -159,25 +163,26 @@ body, #mainNav a, #floatinghelper{
 }
 
 header h1 {
+    text-align: center;
     font-family: var(--edoFont);
     font-size: var(--large);
     color: var(--mtextColorLight);
-    margin: calc(var(--large)*1.5) 20px;
+    margin: calc(var(--large)*1.5) 20px 0;
     text-shadow: 
-    2px 2px 1px rgb(0, 255, 136),
-    -2px -2px 1px rgb(204, 0, 255);
+    2px 1px 1px rgb(0, 255, 136),
+    -2px -1px 1px rgb(204, 0, 255);
 }
 
 
 #mainNav a{
     text-decoration: none;
-    border-bottom: 5px solid var(--bgColorLight);
-    transition: border .5s;
+    border-bottom: 5px solid var(--bgColorLighter);
+    transition: border .4s;
 }
 #mainNav a:hover,#mainNav a:focus{
     color: var(--mtextColorLight);
-    border-color: var(--bgColorLighter);
-    transition: border .3s;
+    border-color: var(--linkColorVisited);
+    transition: border .4s;
 }
 
 
@@ -188,23 +193,29 @@ section {
     background: 
     var(--bgColorLight) 
     url('../media/demoF.svg') no-repeat center fixed;
-    background-size: 80% 80%;
+    background-size: 85% 85%;
 }
 
 section h2{
+    display: block;
     font-size: var(--medium);
     color: var(--mtextColorLight);
     margin: 0;
 }
+section h2::first-letter{
+    font-family: var(--edoFont);
+    text-shadow: 2px 2px 3px black;
+    font-size: 70px;
+}
 
-section a{
+section a:link{
     color: var(--linkColor);
 }
 section a:visited{
     color: var(--linkColorVisited);
 }
 section a:hover{
-    opacity: .9;
+    color: var(--linkHoverColor);
 }
 
 
@@ -226,7 +237,7 @@ address a {
 /* bg gfx fix , because of last "section"v bottom image cuts bg off*/
 #similar{
     position: relative;
-    z-index: 1;
+    z-index: 11;
 }
 #similar::after{
     content: '';
@@ -235,7 +246,7 @@ address a {
     height: 100%;
     left: 0; bottom: 0;
     z-index: -1;
-    background: linear-gradient(hsla(0, 0%, 0%, 0),var(--bgColorLight))
+    background: linear-gradient(hsla(0, 0%, 0%, 0),var(--bgColorLight));
 }
 
 
@@ -243,22 +254,11 @@ address a {
 /* ------ content fluff ------- */
 
 
-.artist a{
-    color: var(--linkColor);
-}
-.artist a:visited{
-    color: var(--linkColorVisited);
-}
-
-
-
-
-
 /* back up helper */
 #floatinghelper{
     background: var(--bgColorDark);
     opacity: .8;
-    padding: 15px;
+    padding: 10px;
     transition: background 1s;
 }
 #floatinghelper:hover{
@@ -294,13 +294,16 @@ address a {
 
 
 #subNav{
+    position: sticky;
+    background: linear-gradient(hsla(0, 0%, 0%, 0),var(--bgColorLight) 60%);
+
     display: flex;
     justify-content: space-evenly;
-    position: relative;
+
     bottom: 0;
     left: 0;
     width: 100%;
-    margin-top: 5px;
+    margin-top: 20px;
 }
 #subNav button{
     text-shadow: 1px 1px 2px black;
@@ -312,8 +315,8 @@ address a {
     transition: color .2s;
 }
 #subNav button:hover{
-    color: var(--linkColorVisited);
-    transition: color .2s;
+    color: var(--linkHoverColor);
+    transition: color .1s;
     cursor: pointer;
 }
 #subNav button:active{
@@ -321,7 +324,7 @@ address a {
 }
 #subNav span{
     margin: auto;
-    color: var(--linkColorVisited);
+    color: var(--linkHoverColor);
 }
 
 
@@ -355,7 +358,6 @@ address a {
 
 @media (max-width: 850px){
     #similar article{
-
         border-bottom: 1px solid var(--bgColorLighter);
         padding-top: 10px;
 
@@ -378,7 +380,6 @@ address a {
     #similar p{
         grid-area: desc;
     }
-
 }
 
 @media (max-width: 450px){
@@ -393,3 +394,91 @@ address a {
 }
 
 
+
+/* #intro p,
+#music p,
+#retro p{
+    
+} */
+
+
+/* 
+- putting image css, in stylesheet, instead of in markup as to adhere closer to original task of
+assignement 8.
+- declaring rules for each image individually, such that one may change any spesific image
+*/
+main section p > img{
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+@media (min-width: 750px){
+    #music :nth-child(2) img{
+        float:right; 
+        max-width:30%;
+        min-width: 200px;
+    
+        transform: rotate(4deg);
+        margin: 3px 20px;
+    }
+    #music :nth-child(5) img{
+        float:right; 
+        max-width:30%;
+        min-width: 200px;
+        transform: rotate(-4deg);
+        margin: 3px 20px;
+    }  
+    #retro img{
+        float:left; 
+        max-width:30%;
+        min-width: 200px;
+        transform: rotate(4deg);
+        margin: 3px 20px;
+    }
+}
+
+
+
+/* #intro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#intro h2{
+    align-self: flex-start;
+}
+#intro iframe{
+    max-width: 500px;
+    align-self: flex-end;
+} */
+
+#intro iframe{
+    display: block;
+    max-width: 450px;
+    margin: 0 auto;
+
+}
+
+
+#pBar{
+    position: fixed;
+    z-index: 99;
+    height: 3px;
+    width: 100%;
+    top: 0;
+    left: 0; right: 0;
+    margin: 0 auto;
+    max-width: 1024px;
+}
+#pBar > div{
+    position: relative;
+    box-sizing: border-box;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: var(--linkColor);
+    border-top: 1px solid black;
+}

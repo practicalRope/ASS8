@@ -77,6 +77,11 @@ function update(){
 
 
 window.addEventListener('keydown',(k)=>{
+    if(1===1){
+        // console.log("elem=>"+similar.getBoundingClientRect().top);
+        // console.log("screen=>"+window.screen.height);
+        
+        
         if(k.key === 'ArrowLeft') {
             previous();
             k.preventDefault();
@@ -85,20 +90,46 @@ window.addEventListener('keydown',(k)=>{
             next();
             k.preventDefault();
         }
-},false)
-
+    }
+},false);
 
 // It would be cool to do touch, but time is of the essence
+// and i havent done this before, so responsiveness could become buggy
 // window.addEventListener('touchstart',(t)=>{
 
-    
-    
 // },false)
 // window.addEventListener('touchmove',(t)=>{
-    
 
 // },false)
 
 
 
+
+// NAV scrolling
+function ProgressBar(){
+    this.value = 0;
+    
+    this.bar = document.createElement('div');
+    this.bar.id = 'pBar'
+    this.progress = document.createElement('div');
+    this.bar.appendChild(this.progress);
+    
+    document.body.appendChild(this.bar);
+
+    this.updateProgress();
+    return this;
+}
+
+ProgressBar.prototype.updateProgress = function(){
+    let rootHeight = document.querySelector(':root').offsetHeight - window.innerHeight;
+    let val = (window.scrollY / rootHeight) * 100;
+    this.progress.style.width = val +'%';
+    return this;
+}
+
+let progress = new ProgressBar();
+
+window.addEventListener('scroll',e=>{
+    progress.updateProgress();
+},false);
 
